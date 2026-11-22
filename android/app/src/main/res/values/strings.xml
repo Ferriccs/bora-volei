@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Bora Vôlei</string>
+    <string name="title_activity_main">Bora Vôlei</string>
+    <string name="package_name">br.com.boravolei.app</string>
+    <string name="custom_url_scheme">br.com.boravolei.app</string>
+</resources>

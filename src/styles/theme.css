@@ -1,0 +1,20 @@
+/* Cores e medidas do Bora Vôlei (tiradas do Figma).
+   Para mudar uma cor no app inteiro, basta mudar aqui. */
+:root {
+  --azul: #276E8D;          /* azul-petróleo: barras, caixas e botões */
+  --azul-escuro: #16384A;   /* contornos e texto escuro */
+  --azul-claro: #9CC9DC;    /* detalhes e destaques suaves */
+  --destaque: #3FA9F5;      /* borda da opção selecionada */
+  --amarelo: #F4C430;       /* estrelas e detalhes da logo */
+  --cinza: #D9D9D9;         /* fundo das telas */
+  --cinza-campo: #E9E9E9;   /* fundo dos campos de texto */
+  --branco: #FFFFFF;
+  --erro: #C0392B;
+
+  --fonte: 'Chakra Petch', system-ui, sans-serif; /* parecida com a Jaro, mas com o V legível */
+
+  --raio-pilula: 999px;     /* botões e barras de título bem arredondados */
+  --raio-caixa: 6px;        /* caixas azuis com canto leve */
+  --espaco: 16px;
+  --largura-max: 480px;     /* no computador, o app fica com largura de celular */
+}

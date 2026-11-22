@@ -1,0 +1,65 @@
+# Gera o APK do Bora Vôlei automaticamente no GitHub (não precisa de Android Studio).
+# Roda a cada envio de código para a branch "main" e também pelo botão "Run workflow".
+# O APK fica para baixar em: Releases > "APK do Bora Vôlei".
+name: Gerar APK
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    env:
+      # Endereço e chave PÚBLICA do Supabase (a chave publishable é feita para ficar no app; não é segredo)
+      VITE_SUPABASE_URL: https://azaqhzqxhbvvzfpyftkp.supabase.co
+      VITE_SUPABASE_ANON_KEY: sb_publishable_4Lvic66heft38KcZNXBQ0A_pDU0TT9F
+      # Endereço do site publicado na Vercel (usado nos links de convite dentro do APK)
+      VITE_SITE_URL: https://bora-volei.vercel.app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar bibliotecas
+        run: npm ci
+
+      - name: Montar o site
+        run: npm run build
+
+      - name: Copiar o site para o projeto Android
+        run: npx cap sync android
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Gerar o APK
+        run: |
+          chmod +x android/gradlew
+          cd android
+          ./gradlew assembleDebug --no-daemon
+          cp app/build/outputs/apk/debug/app-debug.apk ../BoraVolei.apk
+
+      - name: Guardar o APK (aba Actions)
+        uses: actions/upload-artifact@v4
+        with:
+          name: BoraVolei-apk
+          path: BoraVolei.apk
+
+      - name: Publicar o APK (aba Releases)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apk
+          name: APK do Bora Vôlei
+          body: "APK mais recente do Bora Vôlei (gerado automaticamente). Baixe o arquivo BoraVolei.apk no celular Android e abra para instalar."
+          files: BoraVolei.apk
+          make_latest: true

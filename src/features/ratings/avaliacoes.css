@@ -1,0 +1,23 @@
+/* Avaliações por estrelas */
+.avaliacao__linha {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 4px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+.avaliacao__linha:last-of-type { border-bottom: none; }
+.avaliacao__nome { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.avaliacao__dica { font-size: 13px; font-weight: 500; opacity: 0.9; }
+.avaliacao__linha .estrela { color: rgba(255, 255, 255, 0.45); }
+.avaliacao__linha .estrela--cheia { color: var(--amarelo); }
+
+/* Aviso "Como foi o jogo?" */
+.aviso-avaliar {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--amarelo); color: var(--azul-escuro);
+  border-radius: 14px; padding: 12px 14px; text-decoration: none;
+}
+.aviso-avaliar strong { display: block; font-size: 16px; }
+.aviso-avaliar span { font-size: 13px; font-weight: 500; }
+.aviso-avaliar__acao {
+  background: var(--azul); color: var(--branco); border-radius: var(--raio-pilula);
+  padding: 6px 14px; font-size: 14px; white-space: nowrap;
+}

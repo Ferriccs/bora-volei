@@ -1,0 +1,8 @@
+{
+  "appId": "br.com.boravolei.app",
+  "appName": "Bora Vôlei",
+  "webDir": "dist",
+  "android": {
+    "backgroundColor": "#D9D9D9"
+  }
+}

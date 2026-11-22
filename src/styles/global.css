@@ -1,0 +1,36 @@
+/* Estilos gerais que valem para todas as telas */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+
+body {
+  margin: 0;
+  background: #1f1f1f;          /* em telas grandes, a área fora do "celular" fica escura como no Figma */
+  color: var(--azul-escuro);
+  font-family: var(--fonte);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* A "tela" do app: fundo cinza, largura de celular, centralizada */
+.tela {
+  min-height: 100%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  background: var(--cinza);
+  padding: calc(var(--espaco) + env(safe-area-inset-top)) var(--espaco) calc(var(--espaco) + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco);
+}
+
+.secao { display: flex; flex-direction: column; gap: 10px; }
+.linha { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.centro { display: flex; justify-content: center; }
+
+h1, h2, h3 { font-weight: 600; margin: 0; }
+p { margin: 0; }
+
+button { font-family: inherit; }
+:focus-visible { outline: 3px solid var(--destaque); outline-offset: 2px; }
