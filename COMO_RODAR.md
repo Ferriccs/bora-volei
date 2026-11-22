@@ -148,8 +148,22 @@ O APK é gerado sozinho pelo GitHub (sem Android Studio) toda vez que o código 
 1. No repositório, aba **Actions**: espere o "Gerar APK" ficar verde (uns 5 minutos).
 2. Aba **Releases** (lado direito da página do repositório) > **APK do Bora Vôlei** > baixe `BoraVolei.apk` no celular.
 3. Abra o arquivo. O Android pede para permitir "instalar apps desconhecidos": permita e instale.
-No APK o login é por e-mail e senha (o Google não deixa entrar com Google dentro de apps desse tipo).
-No site e no app instalado pelo navegador, o login com Google funciona normalmente.
+No APK, "Entrar com Google" abre o navegador do celular e, depois do login, volta para o app.
+Para isso funcionar, no Supabase (**Authentication** > **URL Configuration** > **Redirect URLs**) adicione também:
+`br.com.boravolei.app://**`
+
+### 5. Liberar o login com Google para qualquer pessoa
+Enquanto o app do Google está "Em teste", só os usuários de teste conseguem entrar com Google.
+No Google Cloud (projeto "Bora Volei"), menu **Google Auth Platform**:
+1. **Branding** (Marca):
+   - Nome do app: `Bora Vôlei`. E-mail de suporte: o seu.
+   - **Não** envie logo (logo obriga o Google a revisar o app, o que demora dias).
+   - Página inicial: `https://bora-volei-iota.vercel.app`
+   - Política de privacidade: `https://bora-volei-iota.vercel.app/privacidade`
+   - Domínios autorizados: `bora-volei-iota.vercel.app` e `azaqhzqxhbvvzfpyftkp.supabase.co`
+   - Contato do desenvolvedor: o seu e-mail. **Salvar**.
+2. **Audience** (Público) > **Publish app** (Publicar app) > **Confirm**. O status muda para "Em produção".
+Como o app só pede nome, e-mail e foto, o Google libera na hora, sem revisão.
 
 ## O que já tem
 - Etapa 1: a página `/amostra` mostra todos os pedaços visuais (botões, campos, caixas, estrelas, logo).

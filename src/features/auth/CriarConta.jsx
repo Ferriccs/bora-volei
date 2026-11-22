@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { ehApp } from '../../lib/site.js'
 import { SITE_URL } from '../../lib/site.js'
 import TelaEntrada from '../../components/TelaEntrada.jsx'
 import { Link } from 'react-router-dom'
@@ -89,7 +88,7 @@ export default function CriarConta() {
         </div>
       </form>
 
-      {!ehApp && <div className="divisor">ou</div>}
+      <div className="divisor">ou</div>
       <BotaoGoogle />
 
       <p className="link-escuro">

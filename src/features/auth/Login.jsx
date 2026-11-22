@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import BotaoInstalar from '../../components/BotaoInstalar.jsx'
-import { ehApp } from '../../lib/site.js'
 import TelaEntrada from '../../components/TelaEntrada.jsx'
 import { Link } from 'react-router-dom'
 import { supabase } from '../../lib/supabase.js'
@@ -49,13 +48,14 @@ export default function Login() {
         </div>
       </form>
 
-      {!ehApp && <div className="divisor">ou</div>}
+      <div className="divisor">ou</div>
       <BotaoGoogle />
 
       <p className="link-escuro">
         Ainda não tem conta? <Link to="/criar-conta" className="link-escuro">Criar conta</Link>
       </p>
       <div className="centro"><BotaoInstalar /></div>
+      <div className="centro"><Link to="/privacidade" className="link-escuro" style={{ fontSize: 13 }}>Política de privacidade</Link></div>
     </TelaEntrada>
   )
 }

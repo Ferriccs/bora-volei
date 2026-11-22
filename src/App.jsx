@@ -27,6 +27,7 @@ import EmBreve from './pages/EmBreve.jsx'
 import SemChaves from './pages/SemChaves.jsx'
 import { supabaseConfigurado } from './lib/supabase.js'
 import BarraPc from './components/BarraPc.jsx'
+import Privacidade from './pages/Privacidade.jsx'
 
 // Se a pessoa abriu o link de "nova senha" do e-mail, leva direto para a tela certa.
 function RedirecionaRecuperacao() {
@@ -51,6 +52,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/grupos" replace />} />
         <Route path="/amostra" element={<Amostra />} />
+        <Route path="/privacidade" element={<Privacidade />} />
 
         {/* Etapa 2: contas */}
         <Route path="/login" element={<SoVisitante><Login /></SoVisitante>} />

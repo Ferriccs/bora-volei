@@ -143,3 +143,10 @@ textarea.campo__input { border-radius: 16px; resize: vertical; min-height: 70px;
 
 /* ---------- Instalar app ---------- */
 .dica-instalar { font-size: 14px; text-align: center; font-weight: 500; background: var(--branco); border-radius: 12px; padding: 10px 14px; }
+
+/* ---------- Texto longo (ex.: Privacidade) ---------- */
+.texto-longo { display: flex; flex-direction: column; gap: 10px; font-weight: 500; line-height: 1.45; }
+.texto-longo h2 { font-size: 17px; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 6px; }
+.texto-longo ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.texto-longo a { color: var(--branco); }
+.texto-longo__data { font-size: 13px; opacity: 0.85; }

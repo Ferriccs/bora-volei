@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { entrarComGoogleNoApp } from './loginNoApp.js'
 import { ehApp } from '../../lib/site.js'
 import { supabase } from '../../lib/supabase.js'
 import { traduzirErro } from './mensagens.js'
@@ -6,21 +7,22 @@ import Aviso from '../../components/Aviso.jsx'
 
 // Botão "Entrar com Google". Só funciona depois de ativar o Google no Supabase
 // (Authentication > Sign In / Providers > Google). Antes disso, mostra um aviso.
-// No APK ele não aparece: o Google não deixa fazer login dentro de apps desse tipo
-// (no APK entra-se com e-mail e senha; no site e no app instalado pelo navegador, o Google funciona).
+// No APK, o login abre o navegador do celular e depois volta para o app (veja loginNoApp.js).
 export default function BotaoGoogle() {
   const [erro, setErro] = useState('')
 
   async function entrarComGoogle() {
     setErro('')
+    if (ehApp) {
+      try { await entrarComGoogleNoApp() } catch (e) { setErro(traduzirErro(e)) }
+      return
+    }
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: { redirectTo: window.location.origin + '/grupos' },
     })
     if (error) setErro(traduzirErro(error))
   }
-
-  if (ehApp) return null
 
   return (
     <>

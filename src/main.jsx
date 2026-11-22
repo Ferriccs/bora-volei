@@ -7,6 +7,10 @@ import './styles/global.css'
 import './styles/desktop.css'
 import App from './App.jsx'
 import { AuthProvider } from './features/auth/AuthProvider.jsx'
+import { ouvirVoltaDoLogin } from './features/auth/loginNoApp.js'
+
+// No APK: recebe a volta do login com Google
+ouvirVoltaDoLogin()
 
 // Ponto de partida: coloca o App dentro da página e liga a navegação entre telas
 createRoot(document.getElementById('root')).render(
