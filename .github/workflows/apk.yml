@@ -19,7 +19,7 @@ jobs:
       VITE_SUPABASE_URL: https://azaqhzqxhbvvzfpyftkp.supabase.co
       VITE_SUPABASE_ANON_KEY: sb_publishable_4Lvic66heft38KcZNXBQ0A_pDU0TT9F
       # Endereço do site publicado na Vercel (usado nos links de convite dentro do APK)
-      VITE_SITE_URL: https://bora-volei.vercel.app
+      VITE_SITE_URL: https://bora-volei-iota.vercel.app
     steps:
       - uses: actions/checkout@v4
 

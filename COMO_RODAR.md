@@ -131,10 +131,10 @@ Nesta etapa entraram bibliotecas novas (Capacitor). Se for rodar no PC, rode `np
 3. Abra **Environment Variables** e adicione as duas:
    - `VITE_SUPABASE_URL` = `https://azaqhzqxhbvvzfpyftkp.supabase.co`
    - `VITE_SUPABASE_ANON_KEY` = `sb_publishable_4Lvic66heft38KcZNXBQ0A_pDU0TT9F`
-4. Clique em **Deploy**. Em 1 minuto aparece o endereço (ex.: `https://bora-volei.vercel.app`).
+4. Clique em **Deploy**. Em 1 minuto aparece o endereço (ex.: `https://bora-volei-iota.vercel.app`).
 5. No Supabase: **Authentication** > **URL Configuration**:
    - **Site URL**: o endereço da Vercel.
-   - **Redirect URLs** > **Add URL**: o endereço da Vercel com `/**` no final (ex.: `https://bora-volei.vercel.app/**`).
+   - **Redirect URLs** > **Add URL**: o endereço da Vercel com `/**` no final (ex.: `https://bora-volei-iota.vercel.app/**`).
      Deixe também o `http://localhost:5173/**` para continuar testando no PC.
 6. Mande o endereço para o Claude (ele ajusta os links de convite do APK).
 Depois disso, toda vez que o código mudar no GitHub, a Vercel publica a versão nova sozinha.
